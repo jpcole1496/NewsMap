@@ -1,16 +1,19 @@
-.newsSet > div {
-	border-top-style: solid;
-	border-width: 1px;
-	border-color: gray;
-	height: 10em;
-	
-	padding-top: 1em;
-	padding-bottom: 1em;
-}
+
 
 .newsSet > div:hover {
 	background: gray;
 	cursor: pointer;
+}
+
+.storySegment {
+	border-top-style: solid;
+	border-width: 1px;
+	border-color: gray;
+	
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin-left: .5em;
+
 }
 
 .storySegment img {
@@ -25,4 +28,8 @@
 .storySegment h3 {
 	margin: 1em;
 
+}
+
+#headingDiv {
+	padding-bottom: 2em;
 }
