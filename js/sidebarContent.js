@@ -54,27 +54,41 @@ function generateNews(country_name, country_code){
 
 		for(let i = 0; i < data.articles.length; i++){
 			h.push(document.createElement("H3"));
-			img.push(document.createElement("IMG"));
+			//img.push(document.createElement("IMG"));
+			img.push(document.createElement("A"));
+			img[i].href = data.articles[i].url
+			img[i].target = "_blank"
 			storySegment.push(document.createElement("DIV"));
 			storySegment[i].className = "storySegment";
 
-			img[i].src = data.articles[i].urlToImage;
+			//img[i].src = data.articles[i].urlToImage;
+			var tempImageEl = document.createElement("IMG");
+			tempImageEl.src = data.articles[i].urlToImage;
 
-			h[i].appendChild(document.createTextNode(data.articles[i].title));
+			$(h[i]).append('<a href='+data.articles[i].url+' target="_blank"/>');
 
+			var content = ""
+			if(data.articles[i].content != null){
+				content = (data.articles[i].content).substring(0,261);
+			}
+			
 			if(data.articles[i].urlToImage != null && data.articles[i].content != null){
-
+				$(img[i]).append(tempImageEl);
 				$(storySegment[i]).append(img[i]);
+				
+				$(h[i]).find("a").append(data.articles[i].title);
 				$(storySegment[i]).append(h[i]);
-				$(storySegment[i]).append(data.articles[i].content);
+				$(storySegment[i]).append(content);
 				newsSet.appendChild(storySegment[i]);
 			}else if(data.articles[i].urlToImage == null && data.articles[i].content != null){
+				$(h[i]).find("a").append(data.articles[i].title);
 				$(storySegment[i]).append(h[i]);
-				$(storySegment[i]).append(data.articles[i].content);
+				$(storySegment[i]).append(content);
 				newsSet.appendChild(storySegment[i]);
 
 			}else{
-				storySegment[i].appendChild(h[i])
+				$(h[i]).find("a").append(data.articles[i].title);
+				$(storySegment[i]).append(h[i]);
 				noImageStories.push(storySegment[i]);
 			}
 			

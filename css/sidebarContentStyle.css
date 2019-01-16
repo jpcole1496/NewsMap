@@ -1,15 +1,22 @@
 
 
-.newsSet > div:hover {
-	background: gray;
+.storySegment > h3 > a:hover {
+	text-decoration: underline;
+	color: black;
 	cursor: pointer;
+}
+
+.storySegment > h3 > a {
+	text-decoration: none;
+	color: black;
 }
 
 .storySegment {
 	border-top-style: solid;
 	border-width: 1px;
-	border-color: gray;
+	border-color: black;
 	
+	min-height: 10em;
 	padding-top: 1em;
 	padding-bottom: 1em;
 	margin-left: .5em;
@@ -18,18 +25,19 @@
 
 .storySegment img {
 	float: left;
-	width: 15em;
+	width: 14em;
 	height: 10em;
-	display: block;
+	
 	padding-right: 1em;
+
 }
 
 
 .storySegment h3 {
-	margin: 1em;
+	margin-bottom: 1em;
 
 }
 
 #headingDiv {
-	padding-bottom: 2em;
+	padding-bottom: 1em;
 }
